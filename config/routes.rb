@@ -7,6 +7,6 @@ Rails.application.routes.draw do
         passwords: 'api/v1/owners/passwords'
       }
     end
-  end
+  end  
   
 end
