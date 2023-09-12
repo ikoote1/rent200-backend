@@ -12,6 +12,10 @@ gem "pg", "~> 1.1"
 #rspec
 gem 'rspec-rails'
 
+#rswag
+gem 'rswag-api'
+gem 'rswag-ui'
+
 #devise
 gem 'devise'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'

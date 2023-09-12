@@ -181,6 +181,11 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
+    rswag-api (2.10.1)
+      railties (>= 3.1, < 7.1)
+    rswag-ui (2.10.1)
+      actionpack (>= 3.1, < 7.1)
+      railties (>= 3.1, < 7.1)
     stringio (3.0.8)
     thor (1.2.2)
     timeout (0.4.0)
@@ -206,6 +211,8 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.7)
   rspec-rails
+  rswag-api
+  rswag-ui
   tzinfo-data
 
 RUBY VERSION
