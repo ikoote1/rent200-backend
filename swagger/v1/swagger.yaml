@@ -160,7 +160,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Category'
 
-  /api/v1/families:
+/api/v1/families:
     # Define similar operations as above for families resource
       get:
       summary: List Families
@@ -175,7 +175,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Family'
 
-  /api/v1/periods:
+/api/v1/periods:
     # Define similar operations as above for periods resource
       get:
       summary: List Periods
@@ -190,7 +190,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Period'
 
-  /api/v1/places:
+/api/v1/places:
     # Define similar operations as above for places resource
       get:
       summary: List Places
@@ -212,6 +212,46 @@ components:
       scheme: bearer
       bearerFormat: JWT
 
+ schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - name
+
+    Place:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - name
+
+    Period:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - name
+
+    Family:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - name
 security:
-  - bearerAuth: []
+  - bearerAuth: [Ikoote Rasuli]
 
