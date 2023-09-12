@@ -146,7 +146,7 @@ paths:
                     type: string
                     example: Owner not found
 
-/api/v1/categories:
+  /api/v1/categories:
     get:
       summary: List Categories
       description: Endpoint to list all categories.
@@ -160,9 +160,29 @@ paths:
                 items:
                   $ref: '#/components/schemas/Category'
 
-/api/v1/families:
-    # Define similar operations as above for families resource
-      get:
+    post:
+      summary: Create a Category
+      description: Endpoint to create a new category.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Category Name
+      responses:
+        '201':
+          description: Category created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+  /api/v1/families:
+    get:
       summary: List Families
       description: Endpoint to list all families.
       responses:
@@ -175,9 +195,29 @@ paths:
                 items:
                   $ref: '#/components/schemas/Family'
 
-/api/v1/periods:
-    # Define similar operations as above for periods resource
-      get:
+    post:
+      summary: Create a Family
+      description: Endpoint to create a new family.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Family Name
+      responses:
+        '201':
+          description: Family created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Family'
+
+  /api/v1/periods:
+    get:
       summary: List Periods
       description: Endpoint to list all periods.
       responses:
@@ -189,10 +229,29 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Period'
+    post:
+        summary: Create a Period
+        description: Endpoint to create a new period.
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: Period Name
+        responses:
+          '201':
+            description: Period created successfully
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Period'
 
-/api/v1/places:
-    # Define similar operations as above for places resource
-      get:
+  /api/v1/places:
+    get:
       summary: List Places
       description: Endpoint to list all places.
       responses:
@@ -205,14 +264,29 @@ paths:
                 items:
                   $ref: '#/components/schemas/Place'
 
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+    post:
+      summary: Create a Place
+      description: Endpoint to create a new place.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Place Name
+      responses:
+        '201':
+          description: Place created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Place'
 
- schemas:
+components:
+  schemas:
     Category:
       type: object
       properties:
@@ -252,6 +326,6 @@ components:
           type: string
       required:
         - name
-security:
-  - bearerAuth: [Ikoote Rasuli]
 
+security:
+  - bearerAuth: []
