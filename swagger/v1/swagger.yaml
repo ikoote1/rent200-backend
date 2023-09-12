@@ -146,6 +146,65 @@ paths:
                     type: string
                     example: Owner not found
 
+/api/v1/categories:
+    get:
+      summary: List Categories
+      description: Endpoint to list all categories.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+
+  /api/v1/families:
+    # Define similar operations as above for families resource
+      get:
+      summary: List Families
+      description: Endpoint to list all families.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Family'
+
+  /api/v1/periods:
+    # Define similar operations as above for periods resource
+      get:
+      summary: List Periods
+      description: Endpoint to list all periods.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Period'
+
+  /api/v1/places:
+    # Define similar operations as above for places resource
+      get:
+      summary: List Places
+      description: Endpoint to list all places.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Place'
+
 components:
   securitySchemes:
     bearerAuth:
