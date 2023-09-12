@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_12_112758) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_132920) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,4 +50,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_112758) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.text "location"
+    t.text "description"
+    t.decimal "price"
+    t.boolean "active"
+    t.integer "capacity"
+    t.string "steering"
+    t.bigint "owner_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "family_id", null: false
+    t.bigint "place_id", null: false
+    t.bigint "period_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["family_id"], name: "index_products_on_family_id"
+    t.index ["owner_id"], name: "index_products_on_owner_id"
+    t.index ["period_id"], name: "index_products_on_period_id"
+    t.index ["place_id"], name: "index_products_on_place_id"
+  end
+
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "families"
+  add_foreign_key "products", "owners"
+  add_foreign_key "products", "periods"
+  add_foreign_key "products", "places"
 end
