@@ -4,4 +4,5 @@ class Product < ApplicationRecord
   belongs_to :family
   belongs_to :place
   belongs_to :period
+  has_one_attached :image
 end
