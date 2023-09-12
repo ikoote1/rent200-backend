@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Api::V1::CategoriesController < ApplicationController
     before_action :set_category, only: [:show, :update, :destroy]
 
       # GET /api/v1/categories
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
           render json: @category.errors, status: :unprocessable_entity
         end
       end
-      
+
       # PATCH/PUT /api/v1/categories/1
       def update
         if @category.update(category_params)
