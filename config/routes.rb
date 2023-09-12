@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
+  
   namespace :api do
     namespace :v1 do
       devise_for :owners, controllers: {
@@ -8,8 +9,9 @@ Rails.application.routes.draw do
         registrations: 'api/v1/owners/registrations',
         passwords: 'api/v1/owners/passwords'
       }
-      resources: categories
+
+      resources :categories
+      resources :families
     end
-  end  
-  
+  end
 end
