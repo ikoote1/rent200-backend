@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
       resources :categories
       resources :families
+      resources :periods
+      resources :places
     end
   end
 end
