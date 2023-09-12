@@ -285,6 +285,125 @@ paths:
               schema:
                 $ref: '#/components/schemas/Place'
 
+  /api/v1/products:
+    get:
+      summary: List Products
+      description: Endpoint to list all products.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+
+    post:
+      summary: Create a Product
+      description: Endpoint to create a new product.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'  # Use a separate input schema
+      responses:
+        '201':
+          description: Product created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        image:
+          type: string  # Assuming image is a URL or file path
+        location:
+          type: string
+        description:
+          type: string
+        price:
+          type: number  # Use "number" for decimal fields
+        active:
+          type: boolean
+        capacity:
+          type: integer
+        steering:
+          type: string
+        owner_id:
+          type: integer
+        category_id:
+          type: integer
+        family_id:
+          type: integer
+        place_id:
+          type: integer
+        period_id:
+          type: integer
+
+    ProductInput:  # Separate schema for input validation
+      type: object
+      properties:
+        name:
+          type: string
+          example: Product Name
+        image:
+          type: string
+          example: /path/to/image.jpg
+        location:
+          type: string
+          example: Location
+        description:
+          type: string
+          example: Product Description
+        price:
+          type: number
+          format: double
+          example: 10.99
+        active:
+          type: boolean
+          example: true
+        capacity:
+          type: integer
+          example: 100
+        steering:
+          type: string
+          example: Steering Type
+        owner_id:
+          type: integer
+          example: 1
+        category_id:
+          type: integer
+          example: 2
+        family_id:
+          type: integer
+          example: 3
+        place_id:
+          type: integer
+          example: 4
+        period_id:
+          type: integer
+          example: 5
+      required:
+        - name
+        - price
+        - active
+        - capacity
+        - owner_id
+        - category_id
+        - family_id
+        - place_id
+        - period_id
+
 components:
   schemas:
     Category:
@@ -326,6 +445,7 @@ components:
           type: string
       required:
         - name
+    
 
 security:
   - bearerAuth: []
