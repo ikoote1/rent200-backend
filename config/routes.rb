@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         registrations: 'api/v1/owners/registrations',
         passwords: 'api/v1/owners/passwords'
       }
+      resources: categories
     end
   end  
   
